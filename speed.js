@@ -1,19 +1,20 @@
-function checkspeed(speed){
-  const speedlimit= 70;
-  const demeritpoints =Math.max(0,Math.floor((speed-speedlimit)/5));
+function speedDetector(speed){
 
-if (speed <=speedlimit){
-  return "ok";
-  else if(demeritpoints> 12){
-    return"license suspended";
-  }else{
-    return `Points:{demeritPoints}`;
+  if(speed<70) {
+  
+      return "Ok"
+  }
+  else {
+  
+      const demeritPoints = (speed -70)/5 ;
+      if(demeritPoints>12) {
+   
+          return "License Suspended"
+      }
+      else {
+          return `Points: $(demeritPoints)`
+      }
   }
   
   }
-  }
-}
-}
-const carSpeed =Number(prompt("Enter Car speed (km/h):"));
-  const result =checkspeed(carSpeed)
-  console.log (result);
+  console.log(speedDetector(50))
